@@ -8,6 +8,7 @@ module.exports = {
         './resources/js/**/*.vue',
     ],
 
+
     theme: {
         extend: {
             fontFamily: {
@@ -16,5 +17,8 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [require('@tailwindcss/forms'), require('tailwind-scrollbar')],
+    variants: {
+        scrollbar: ['rounded']
+    },
 };

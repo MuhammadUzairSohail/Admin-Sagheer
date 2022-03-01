@@ -1,11 +1,84 @@
 <template>
-    <div>
-        <h1>Home Page</h1>
-    </div>
+    <Layout>
+        <h1>First Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Slot Area</h1>
+        <h1>Last Area</h1>
+    </Layout>
 </template>
 
 <script>
-export default {};
+import Layout from "@/Layouts/Layout.vue";
+export default {
+    components: {
+        Layout,
+    },
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #ff0000;
+}
+</style>
