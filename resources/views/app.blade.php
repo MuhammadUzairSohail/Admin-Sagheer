@@ -16,6 +16,7 @@
     <!-- Scripts -->
     @routes
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/563ba616e1.js" crossorigin="anonymous"></script>
 
 </head>
 
