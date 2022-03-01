@@ -1128,6 +1128,14 @@ select {
   --tw-shadow-color: #14532d;
   --tw-shadow: var(--tw-shadow-colored);
 }
+.hover\:shadow-green-400:hover {
+  --tw-shadow-color: #4ade80;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+.hover\:shadow-green-200:hover {
+  --tw-shadow-color: #bbf7d0;
+  --tw-shadow: var(--tw-shadow-colored);
+}
 .focus\:z-10:focus {
   z-index: 10;
 }

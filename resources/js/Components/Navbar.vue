@@ -13,23 +13,23 @@
 
         <ul class="flex gap-8">
             <li
-                class="rounded-full hover:shadow-lg cursor-pointer border-2 border-green-600 p-2 w-8 h-8 justify-center items-center flex hover:shadow-green-900"
+                class="rounded-full hover:shadow-lg cursor-pointer border-2 border-green-600 p-2 w-8 h-8 justify-center items-center flex hover:shadow-green-200"
             >
                 <i class="fas fa-chart-line"></i>
             </li>
 
             <li
-                class="rounded-full hover:shadow-lg cursor-pointer border-2 border-green-600 p-2 w-8 h-8 justify-center items-center flex hover:shadow-green-900"
+                class="rounded-full hover:shadow-lg cursor-pointer border-2 border-green-600 p-2 w-8 h-8 justify-center items-center flex hover:shadow-green-200"
             >
                 <i class="fas fa-chart-line"></i>
             </li>
             <li
-                class="rounded-full hover:shadow-lg cursor-pointer border-2 border-green-600 p-2 w-8 h-8 justify-center items-center flex hover:shadow-green-900"
+                class="rounded-full hover:shadow-lg cursor-pointer border-2 border-green-600 p-2 w-8 h-8 justify-center items-center flex hover:shadow-green-200"
             >
                 <i class="fas fa-chart-line"></i>
             </li>
             <li
-                class="rounded-full hover:shadow-lg cursor-pointer border-2 border-green-600 p-2 w-8 h-8 justify-center items-center flex hover:shadow-green-900"
+                class="rounded-full hover:shadow-lg cursor-pointer border-2 border-green-600 p-2 w-8 h-8 justify-center items-center flex hover:shadow-green-200"
             >
                 <i class="fas fa-chart-line"></i>
             </li>
