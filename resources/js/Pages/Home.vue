@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout >
         <h1>First Area</h1>
         <h1>Slot Area</h1>
         <h1>Slot Area</h1>
