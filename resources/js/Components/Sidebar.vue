@@ -1,5 +1,5 @@
 <template>
-    <div class="md:w-32 w-16 bg-white dark:bg-gray-800 dark:text-white shadow-lg hover:overflow-hidden  overflow-y-auto">
+    <div class="md:w-32 w-16 bg-white shadow-gray-700 dark:bg-gray-800 dark:text-white shadow-lg hover:overflow-hidden  overflow-y-auto">
         <div
             v-for="item in 10"
             :key="item"

@@ -1,6 +1,6 @@
 <template>
     <div
-        class="min-w-full  flex justify-between sticky top-0 md:px-6 items-center p-3 bg-white dark:bg-gray-800 dark:text-white shadow-md"
+        class="min-w-full z-50  flex justify-between sticky top-0 md:px-6 items-center p-3 bg-white dark:bg-gray-800 dark:text-white shadow-md"
     >
         <div class="flex justify-center pl-1">
             <img
@@ -21,6 +21,7 @@
                 <i class="fas fa-adjust"></i>
             </li>
             <li
+                @click="switchLanguage"
                 class="rounded-full hover:shadow-lg cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
             >
                <i class="fas fa-globe"></i>
@@ -85,6 +86,15 @@ export default {
             }
 
         },
+
+        switchLanguage() {
+            if(localStorage.getItem('language') == 'en') {
+                localStorage.setItem('language', 'ur');
+            }else{
+                localStorage.setItem('language', 'en');
+            }
+            window.location.reload();
+        }
     },
 };
 

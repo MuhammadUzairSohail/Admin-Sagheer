@@ -1,69 +1,31 @@
 <template>
     <Layout >
-        <h1>First Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Slot Area</h1>
-        <h1>Last Area</h1>
+        <h1>{{language.main.message}}</h1>
     </Layout>
 </template>
 
 <script>
 import Layout from "@/Layouts/Layout.vue";
+
 export default {
     components: {
         Layout,
+    },
+
+    data() {
+        return {
+            language: require(`../locales/en.json`),
+            lang: 'en',
+        };
+    },
+
+    created() {
+        this.lang = localStorage.getItem('language');
+        if(this.lang == null) {
+            this.lang = 'en';
+        }
+        var Index = require(`../locales/`+this.lang+`.json`);
+        this.language = Index;
     },
 };
 </script>
