@@ -5,7 +5,7 @@
         <div class="flex justify-center pl-1">
             <img
                 src="https://picsum.photos/51/51"
-                class="rounded-full border-2 dark:border-0 border-white"
+                class="rounded-full border-2 dark:border-2 dark:border-gray-600 border-white"
                 alt=""
                 srcset=""
             />
@@ -66,8 +66,8 @@ export default {
 
         if(localStorage.getItem('darkMode') == 'true') {
             this.darkMode = true;
-                document.getElementsByTagName("body")[0].classList.toggle("dark");
-
+                document.getElementsByTagName("body")[0].classList.add("dark");
+                
         }
 
     },

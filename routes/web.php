@@ -19,5 +19,10 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 
+Route::get('/contactus', function () {
+    return Inertia::render('ContactUs');
+});
+
+
 
 
