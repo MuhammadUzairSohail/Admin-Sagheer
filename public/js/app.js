@@ -24507,13 +24507,18 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     switchLanguage: function switchLanguage() {
-      if (localStorage.getItem('language') == 'en') {
-        localStorage.setItem('language', 'ur');
-      } else {
-        localStorage.setItem('language', 'en');
-      }
-
-      window.location.reload();
+      //import i18n and get the current language
+      Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! @/i18n */ "./resources/js/i18n.js")).then(function (i18n) {
+        console.log(i18n);
+        i18n["default"].setLocale('ur'); // const currentLanguage = i18n.default.locale;
+        // //get the next language
+        // const nextLanguage =
+        //     currentLanguage === "en" ? "fr" : "en";
+        // //set the next language
+        // i18n.default.locale = nextLanguage;
+        // //set the next language in localStorage
+        // localStorage.setItem("language", nextLanguage);
+      });
     }
   }
 });
@@ -24598,27 +24603,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_Layout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Layout.vue */ "./resources/js/Layouts/Layout.vue");
+/* harmony import */ var vue3_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue3-i18n */ "./node_modules/vue3-i18n/dist/vue3-i18n.esm.js");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Layout: _Layouts_Layout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      language: __webpack_require__(/*! ../locales/en.json */ "./resources/js/locales/en.json"),
-      lang: 'en'
-    };
-  },
-  created: function created() {
-    this.lang = localStorage.getItem('language');
-
-    if (this.lang == null) {
-      this.lang = 'en';
-    }
-
-    var Index = __webpack_require__("./resources/js/locales sync recursive ^\\.\\/.*\\.json$")("./" + this.lang + ".json");
-
-    this.language = Index;
   }
 });
 
@@ -24843,7 +24833,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Layout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.language.main.message), 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$t("message")), 1
       /* TEXT */
       )];
     }),
@@ -24866,6 +24856,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/progress */ "./node_modules/@inertiajs/progress/dist/index.js");
+/* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./i18n */ "./resources/js/i18n.js");
 var _window$document$getE;
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
@@ -24874,6 +24865,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 var appName = ((_window$document$getE = window.document.getElementsByTagName('title')[0]) === null || _window$document$getE === void 0 ? void 0 : _window$document$getE.innerText) || 'Laravel';
+
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.createInertiaApp)({
   title: function title(_title) {
     return "".concat(_title, " - ").concat(appName);
@@ -24890,7 +24882,7 @@ var appName = ((_window$document$getE = window.document.getElementsByTagName('ti
       render: function render() {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(app, props);
       }
-    }).use(plugin).mixin({
+    }).use(plugin).use(_i18n__WEBPACK_IMPORTED_MODULE_3__["default"]).mixin({
       methods: {
         route: route
       }
@@ -24931,6 +24923,45 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/i18n.js":
+/*!******************************!*\
+  !*** ./resources/js/i18n.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue3_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue3-i18n */ "./node_modules/vue3-i18n/dist/vue3-i18n.esm.js");
+
+var messages = {
+  en: {
+    'message': 'Hello, world!!' // menu: ["Home"],
+    // test: "test",
+    // object: {
+    //   a: "1233",
+    // },
+    // parse: "welcome to {name}",
+    // parses: {
+    //   a: "welcome to {name}",
+    // },
+
+  },
+  ur: {
+    'message': 'ہیلو دنیا!'
+  }
+};
+var i18n = (0,vue3_i18n__WEBPACK_IMPORTED_MODULE_0__.createI18n)({
+  //get locale from browser
+  locale: 'en',
+  messages: messages
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (i18n);
 
 /***/ }),
 
@@ -25059,7 +25090,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nhtml {\n    overflow: scroll;\n    overflow-x: hidden;\n}\n::-webkit-scrollbar {\n    width: 0; /* Remove scrollbar space */\n    background: transparent; /* Optional: just make scrollbar invisible */\n}\n/* Optional: show position indicator in red */\n::-webkit-scrollbar-thumb {\n    background: #ff0000;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nhtml {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n::-webkit-scrollbar {\n  width: 0; /* Remove scrollbar space */\n  background: transparent; /* Optional: just make scrollbar invisible */\n}\n/* Optional: show position indicator in red */\n::-webkit-scrollbar-thumb {\n  background: #ff0000;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49822,6 +49853,25 @@ function compileToFunction(template, options) {
 
 /***/ }),
 
+/***/ "./node_modules/vue3-i18n/dist/vue3-i18n.esm.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vue3-i18n/dist/vue3-i18n.esm.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createI18n": () => (/* binding */ o),
+/* harmony export */   "i18nSymbol": () => (/* binding */ n),
+/* harmony export */   "useI18n": () => (/* binding */ l)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+const n=Symbol("i18n"),r=(e,t,n)=>{const o=e[0];if(~o.indexOf("[")){const[l,a]=o.split("["),s=parseInt(a.replace("]",""));if(s>-1){if(!t[l]&&t[l].length>0&&t[l][s]&&""!==t[l][s])throw new Error("Not Found");return 1===e.length?"string"==typeof t[l][s]?t[l][s]:"":r(e.slice(1),t[l][s],n)}throw new Error(`Not Found: ${o}`)}if(t[e[0]]||""===t[e[0]]){if(1===e.length){let r="string"==typeof t[e[0]]?t[e[0]]:"";return n&&(r=((e,t)=>{const n=/{(\w*)}/g;let r,o=e;for(;null!==(r=n.exec(e));){if(!Object.prototype.hasOwnProperty.call(t,r[1]))throw new Error(`Not Found Params: ${r[1]}`);o=o.replace(r[0],t[r[1]])}return o})(r,n)),r}return r(e.slice(1),t[e[0]],n)}throw new Error("Not Found")},o=t=>{const o=(0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(t.locale||"en"),l=t.messages;return{messages:l,t:(e,t)=>{const n=l[o.value]||l.en;if("string"!=typeof e)return console.warn("Warn(i18n):","keypath must be a type of string"),"";try{return r(e.split("."),n,t)}catch(t){return console.warn(`Warn(i18n): the keypath '${e}' not found`),""}},setLocale:e=>{l[e]||console.warn(`Warn(i18n): the '${e}' language pack not found, fall back to English language pack`),o.value=e},getLocale:()=>o.value,install(e){const t=this;e.provide(n,t),e.config.globalProperties.$t=t.t,e.config.globalProperties.$i18n=t}}};function l(){return (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(n)}
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages sync recursive ^\\.\\/.*\\.vue$":
 /*!************************************************!*\
   !*** ./resources/js/Pages/ sync ^\.\/.*\.vue$ ***!
@@ -49855,39 +49905,6 @@ webpackContext.id = "./resources/js/Pages sync recursive ^\\.\\/.*\\.vue$";
 
 /***/ }),
 
-/***/ "./resources/js/locales sync recursive ^\\.\\/.*\\.json$":
-/*!***************************************************!*\
-  !*** ./resources/js/locales/ sync ^\.\/.*\.json$ ***!
-  \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var map = {
-	"./en.json": "./resources/js/locales/en.json",
-	"./ur.json": "./resources/js/locales/ur.json"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./resources/js/locales sync recursive ^\\.\\/.*\\.json$";
-
-/***/ }),
-
 /***/ "?2128":
 /*!********************************!*\
   !*** ./util.inspect (ignored) ***!
@@ -49906,28 +49923,6 @@ webpackContext.id = "./resources/js/locales sync recursive ^\\.\\/.*\\.json$";
 
 "use strict";
 module.exports = JSON.parse('{"_from":"axios@^0.21.1","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/@inertiajs/inertia/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21.1","name":"axios","escapedName":"axios","rawSpec":"^0.21.1","saveSpec":null,"fetchSpec":"^0.21.1"},"_requiredBy":["/@inertiajs/inertia"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21.1","_where":"/media/mrzardari/Projects/Laravel Projects/admin_panel/node_modules/@inertiajs/inertia","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
-
-/***/ }),
-
-/***/ "./resources/js/locales/en.json":
-/*!**************************************!*\
-  !*** ./resources/js/locales/en.json ***!
-  \**************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse('{"main":{"message":"Hello, world!"}}');
-
-/***/ }),
-
-/***/ "./resources/js/locales/ur.json":
-/*!**************************************!*\
-  !*** ./resources/js/locales/ur.json ***!
-  \**************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse('{"main":{"message":"ہیلو ورلڈ"}}');
 
 /***/ })
 

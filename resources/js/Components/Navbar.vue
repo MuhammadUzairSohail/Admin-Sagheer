@@ -51,6 +51,7 @@
 <script>
 //import font awesome
 import FontAwesomeIcon from "@fortawesome/fontawesome-free";
+
 export default {
     
     components: {
@@ -60,6 +61,7 @@ export default {
     data() {
         return {
             darkMode: false,
+           
         };
     },
 
@@ -88,12 +90,21 @@ export default {
         },
 
         switchLanguage() {
-            if(localStorage.getItem('language') == 'en') {
-                localStorage.setItem('language', 'ur');
-            }else{
-                localStorage.setItem('language', 'en');
-            }
-            window.location.reload();
+            //import i18n and get the current language
+            import("@/i18n").then((i18n) => {
+            console.log(i18n);
+            i18n.default.setLocale('ur');
+
+                // const currentLanguage = i18n.default.locale;
+                // //get the next language
+                // const nextLanguage =
+                //     currentLanguage === "en" ? "fr" : "en";
+                // //set the next language
+                // i18n.default.locale = nextLanguage;
+                // //set the next language in localStorage
+                // localStorage.setItem("language", nextLanguage);
+            });
+
         }
     },
 };
