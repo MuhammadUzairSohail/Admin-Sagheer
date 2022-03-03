@@ -5,12 +5,13 @@
         <div
             v-for="item in routeslist"
             :key="item.name"
-            class="flex-col text-center border-gray-200 dark:border-gray-700 border-b-2 justify-center hover:text-green-600 md:p-4 p-2 dark:hover:bg-gray-700 hover:bg-gray-100 transform duration-300 hover:scale-105 cursor-pointer hover:border-green-600"
+            class="flex-col text-center border-gray-200 dark:border-gray-700 border-b-2 justify-center hover:text-green-600 md:p-4 p-2 dark:hover:bg-gray-700 hover:bg-gray-100 transform duration-700 hover:scale-105 cursor-pointer hover:border-green-600"
         >
             <Link :href="item.route" class="list-none">
                 <i :class="item.icon"></i>
-                <!-- <p>{{ $t("message") }}</p> -->
-                <h1 class="mt-2">{{ $t(item.name) }}</h1>
+                <h1 class="mt-2 md:flex hidden justify-center">
+                    {{ $t(item.name) }}
+                </h1>
             </Link>
         </div>
     </div>

@@ -1,17 +1,63 @@
 <template>
     <div
-        class="min-w-full z-50 flex justify-between sticky top-0 md:px-6 items-center p-3 bg-white dark:bg-gray-800 dark:text-white shadow-md"
+        class="min-w-full z-50 flex justify-between sticky top-0 md:px-6 items-center transform duration-300 bg-white dark:bg-gray-800 dark:text-white shadow-md"
     >
-        <div class="flex justify-center pl-1">
+        <div class="flex justify-center pl-4">
             <img
                 src="https://picsum.photos/51/51"
-                class="rounded-full border-2 dark:border-2 dark:border-gray-600 border-white"
+                class="rounded-full border-2 dark:border-2 my-2 dark:border-gray-600 border-white"
                 alt=""
                 srcset=""
             />
         </div>
 
-        <ul class="flex gap-8">
+        <div class="relative right-0 md:hidden flex left-0">
+            <i
+                class="fas fa-bars pr-6"
+                @click="mobileMenuOpen = !mobileMenuOpen"
+            ></i>
+            <div
+                :class="{
+                    hidden: !mobileMenuOpen,
+                    block: mobileMenuOpen,
+                }"
+                class="absolute right-0 top-0 mt-8 bg-white dark:bg-gray-800 p-4 flex-col"
+            >
+                <ul class="gap-8">
+                    <li
+                        @click="switchToDarkMode"
+                        class="rounded-full hover:shadow-lg mt-3 cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
+                    >
+                        <i class="fas fa-adjust"></i>
+                    </li>
+                    <li
+                        @click="switchLanguage"
+                        class="rounded-full hover:shadow-lg mt-3 cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
+                    >
+                        <i class="fas fa-globe"></i>
+                    </li>
+
+                    <li
+                        class="rounded-full hover:shadow-lg mt-3 cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
+                    >
+                        <i class="fas fa-bell"></i>
+                    </li>
+
+                    <li
+                        class="rounded-full hover:shadow-lg mt-3 cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
+                    >
+                        <img
+                            src="https://picsum.photos/51/51"
+                            class="rounded-full border-2 border-white"
+                            alt=""
+                            srcset=""
+                        />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <ul class="md:flex hidden gap-8">
             <li
                 @click="switchToDarkMode"
                 class="rounded-full hover:shadow-lg cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
@@ -58,6 +104,7 @@ export default {
         return {
             darkMode: false,
             language: "en",
+            mobileMenuOpen: false,
         };
     },
 
@@ -93,6 +140,8 @@ export default {
                 this.darkMode = true;
                 localStorage.setItem("darkMode", true);
             }
+
+            this.mobileMenuOpen = false;
         },
 
         switchLanguage() {
@@ -106,6 +155,8 @@ export default {
                     localStorage.setItem("language", "en");
                 }
             });
+
+            this.mobileMenuOpen = false;
         },
     },
 };
