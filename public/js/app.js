@@ -24661,10 +24661,10 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex justify-center pl-4"
+  "class": "flex justify-center md:pl-4 pl-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "https://picsum.photos/51/51",
-  "class": "rounded-full border-2 dark:border-2 my-2 dark:border-gray-600 border-white",
+  "class": "rounded-full w-10 h-10 border-2 dark:border-2 my-2 dark:border-gray-600 border-white",
   alt: "",
   srcset: ""
 })], -1
