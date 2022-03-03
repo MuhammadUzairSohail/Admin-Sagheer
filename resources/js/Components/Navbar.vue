@@ -10,7 +10,7 @@
                 "
             ></i>
         </div>
-        <div class="flex justify-center items-center md:pl-4 pl-2">
+        <div class="flex justify-center items-center md:pl-8 px-2">
             <Link href="/">
                 <img
                     src="https://picsum.photos/51/51"
@@ -56,13 +56,7 @@
                         <i class="fas fa-globe"></i>
                     </li>
 
-                    <li
-                        class="rounded-full hover:shadow-lg mt-3 cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
-                    >
-                        <i class="fas fa-bell"></i>
-                    </li>
-
-                    <li
+                    <!-- <li
                         class="rounded-full hover:shadow-lg mt-3 cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
                     >
                         <img
@@ -71,7 +65,7 @@
                             alt=""
                             srcset=""
                         />
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -90,13 +84,7 @@
                 <i class="fas fa-globe"></i>
             </li>
 
-            <li
-                class="rounded-full hover:shadow-lg cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
-            >
-                <i class="fas fa-bell"></i>
-            </li>
-
-            <li
+            <!-- <li
                 class="rounded-full hover:shadow-lg cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
             >
                 <img
@@ -105,7 +93,7 @@
                     alt=""
                     srcset=""
                 />
-            </li>
+            </li> -->
         </ul>
     </div>
 </template>

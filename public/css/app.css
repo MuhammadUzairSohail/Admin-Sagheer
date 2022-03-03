@@ -1253,6 +1253,10 @@ select {
   .md\:pl-4 {
     padding-left: 1rem;
   }
+
+  .md\:pl-8 {
+    padding-left: 2rem;
+  }
 }
 @media (min-width: 1024px) {
 
