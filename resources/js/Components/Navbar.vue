@@ -1,11 +1,11 @@
 <template>
     <div
-        class="min-w-full z-50 flex justify-between sticky top-0 md:px-6 items-center transform duration-300 bg-white dark:bg-gray-800 dark:text-white shadow-md"
+        class="min-w-full z-50 flex justify-between sticky top-0 md:px-6 items-center transform duration-500 bg-white dark:bg-gray-800 dark:text-white shadow-md"
     >
         <div class="flex justify-center md:pl-4 pl-2">
             <img
                 src="https://picsum.photos/51/51"
-                class="rounded-full w-10 h-10 border-2 dark:border-2 my-2 dark:border-gray-600 border-white"
+                class="rounded-full w-10 h-10 my-2"
                 alt=""
                 srcset=""
             />

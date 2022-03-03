@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -18,9 +18,27 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/563ba616e1.js" crossorigin="anonymous"></script>
 
+    <style>
+        html {
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+            /* Remove scrollbar space */
+            background: transparent;
+            /* Optional: just make scrollbar invisible */
+        }
+
+        /* Optional: show position indicator in red */
+        ::-webkit-scrollbar-thumb {
+            background: #ff0000;
+        }
+    </style>
 </head>
 
-<body  class="font-sans antialiased" >
+<body class="font-sans antialiased">
     @inertia
 
     @env ('local')

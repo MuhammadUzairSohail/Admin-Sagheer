@@ -1,9 +1,9 @@
-<template >
+<template>
     <Navbar />
-    <div  class=" flex h-screen max-h-screen min-h-screen">
+    <div class="flex h-screen max-h-screen min-h-screen">
         <Sidebar />
         <div
-            class="bg-gray-50 dark:bg-gray-700 dark:text-white p-6 w-full scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-50 overflow-y-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
+            class="bg-gray-50 dark:bg-gray-700 transform duration-500 dark:text-white p-6 w-full scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-50 overflow-y-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
         >
             <slot></slot>
         </div>
