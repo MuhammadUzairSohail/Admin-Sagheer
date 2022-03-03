@@ -2,18 +2,35 @@
     <div
         class="min-w-full z-50 flex justify-between sticky top-0 md:px-6 items-center transform duration-500 bg-white dark:bg-gray-800 dark:text-white shadow-md"
     >
-        <div class="flex justify-center md:pl-4 pl-2">
+        <div class="pl-6 md:hidden flex">
+            <i
+                class="fas fa-bars"
+                @click="
+                    $store.state.sidebarDesktop = !$store.state.sidebarDesktop
+                "
+            ></i>
+        </div>
+        <div class="flex justify-center items-center md:pl-4 pl-2">
             <img
                 src="https://picsum.photos/51/51"
                 class="rounded-full w-10 h-10 my-2"
                 alt=""
                 srcset=""
             />
+            <div class="pl-12 md:flex hidden">
+                <i
+                    class="fas fa-bars cursor-pointer"
+                    @click="
+                        $store.state.sidebarDesktop =
+                            !$store.state.sidebarDesktop
+                    "
+                ></i>
+            </div>
         </div>
 
         <div class="relative right-0 md:hidden flex left-0">
             <i
-                class="fas fa-bars pr-6"
+                class="fas fa-cog pr-6"
                 @click="mobileMenuOpen = !mobileMenuOpen"
             ></i>
             <div

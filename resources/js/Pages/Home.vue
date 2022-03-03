@@ -1,6 +1,7 @@
 <template>
     <Layout>
         <p>{{ $t("message") }}</p>
+        <p>{{ $store.state.sidebarDesktop }}</p>
     </Layout>
 </template>
 

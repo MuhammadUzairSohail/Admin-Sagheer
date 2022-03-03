@@ -1,6 +1,7 @@
 <template>
     <div
-        class="md:w-32 w-16 bg-white border-r-2 border-gray-300 dark:border-gray-600 border-b-2 dark:bg-gray-800 dark:text-white hover:overflow-hidden transform duration-500 overflow-y-auto"
+        :class="$store.state.sidebarDesktop ? ' w-32' : 'w-0'"
+        class="bg-white border-r-2 border-gray-300 dark:border-gray-600 border-b-2 dark:bg-gray-800 dark:text-white hover:overflow-hidden transform duration-500 overflow-y-auto"
     >
         <div
             v-for="item in routeslist"
@@ -9,7 +10,7 @@
         >
             <Link :href="item.route" class="list-none">
                 <i :class="item.icon"></i>
-                <h1 class="mt-2 md:flex hidden justify-center">
+                <h1 class="mt-2 justify-center">
                     {{ $t(item.name) }}
                 </h1>
             </Link>
