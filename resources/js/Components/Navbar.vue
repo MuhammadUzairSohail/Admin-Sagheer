@@ -111,10 +111,12 @@
 <script>
 //import font awesome
 import FontAwesomeIcon from "@fortawesome/fontawesome-free";
+import $ from "jquery";
 
 export default {
     components: {
         FontAwesomeIcon,
+        $,
     },
 
     data() {
@@ -125,6 +127,11 @@ export default {
         };
     },
 
+    created() {
+        $(window).on("resize", () => {
+            this.$store.state.sidebarDesktop = $(window).width() > 768;
+        });
+    },
     mounted() {
         if (localStorage.getItem("darkMode") == "true") {
             this.darkMode = true;
@@ -174,6 +181,14 @@ export default {
             });
 
             this.mobileMenuOpen = false;
+        },
+
+        onresize() {
+            // if (window.innerWidth > 768) {
+            //     this.mobileMenuOpen = false;
+            // }
+
+            console.log("resize");
         },
     },
 };

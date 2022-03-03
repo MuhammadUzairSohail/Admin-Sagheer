@@ -718,17 +718,14 @@ select {
 .w-10 {
   width: 2.5rem;
 }
-.w-16 {
-  width: 4rem;
-}
-.w-full {
-  width: 100%;
+.w-32 {
+  width: 8rem;
 }
 .w-0 {
   width: 0px;
 }
-.w-32 {
-  width: 8rem;
+.w-full {
+  width: 100%;
 }
 .min-w-full {
   min-width: 100%;
@@ -750,6 +747,9 @@ select {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.resize {
+  resize: both;
 }
 .list-none {
   list-style-type: none;
@@ -1215,10 +1215,6 @@ select {
 
   .md\:hidden {
     display: none;
-  }
-
-  .md\:w-32 {
-    width: 8rem;
   }
 
   .md\:grid-cols-2 {
