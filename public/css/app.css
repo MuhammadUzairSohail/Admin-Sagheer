@@ -727,6 +727,18 @@ select {
 .w-full {
   width: 100%;
 }
+.w-48 {
+  width: 12rem;
+}
+.w-64 {
+  width: 16rem;
+}
+.w-3 {
+  width: 0.75rem;
+}
+.w-40 {
+  width: 10rem;
+}
 .min-w-full {
   min-width: 100%;
 }

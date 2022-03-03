@@ -11,12 +11,14 @@
             ></i>
         </div>
         <div class="flex justify-center items-center md:pl-4 pl-2">
-            <img
-                src="https://picsum.photos/51/51"
-                class="rounded-full w-10 h-10 my-2"
-                alt=""
-                srcset=""
-            />
+            <Link href="/">
+                <img
+                    src="https://picsum.photos/51/51"
+                    class="rounded-full w-10 h-10 my-2"
+                    alt=""
+                    srcset=""
+                />
+            </Link>
             <div class="pl-12 md:flex hidden">
                 <i
                     class="fas fa-bars cursor-pointer"
@@ -112,11 +114,13 @@
 //import font awesome
 import FontAwesomeIcon from "@fortawesome/fontawesome-free";
 import $ from "jquery";
+import { Link } from "@inertiajs/inertia-vue3";
 
 export default {
     components: {
         FontAwesomeIcon,
         $,
+        Link,
     },
 
     data() {
