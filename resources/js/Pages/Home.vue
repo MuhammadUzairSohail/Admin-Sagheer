@@ -6,7 +6,6 @@
 
 <script>
 import Layout from "@/Layouts/Layout.vue";
-import { useI18n } from "vue3-i18n";
 
 export default {
   components: {

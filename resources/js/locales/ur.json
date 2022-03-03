@@ -1,5 +1,8 @@
 {
-    "main":{
-        "message": "ہیلو ورلڈ"
-    }
+    "message": "ہیلو ورلڈ",
+    "menu": {
+        "dashboard": "ڈیش بورڈ",
+        "sales": "سیلز"
+    },
+    "contactus": "ہم سے رابطہ کریں"
 }

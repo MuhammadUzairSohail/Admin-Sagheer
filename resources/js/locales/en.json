@@ -1,5 +1,8 @@
 {
-    "main":{
-        "message": "Hello, world!"
-    }
+    "message": "Hello, world!",
+    "menu": {
+        "dashboard": "Dashboard",
+        "sales": "Sales"
+    },
+    "contactus": "Contact us"
 }

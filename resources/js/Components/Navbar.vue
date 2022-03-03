@@ -1,6 +1,6 @@
 <template>
     <div
-        class="min-w-full z-50  flex justify-between sticky top-0 md:px-6 items-center p-3 bg-white dark:bg-gray-800 dark:text-white shadow-md"
+        class="min-w-full z-50 flex justify-between sticky top-0 md:px-6 items-center p-3 bg-white dark:bg-gray-800 dark:text-white shadow-md"
     >
         <div class="flex justify-center pl-1">
             <img
@@ -12,8 +12,6 @@
         </div>
 
         <ul class="flex gap-8">
-        
-
             <li
                 @click="switchToDarkMode"
                 class="rounded-full hover:shadow-lg cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
@@ -24,26 +22,25 @@
                 @click="switchLanguage"
                 class="rounded-full hover:shadow-lg cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
             >
-               <i class="fas fa-globe"></i>
+                <i class="fas fa-globe"></i>
             </li>
 
-             <li
+            <li
                 class="rounded-full hover:shadow-lg cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
             >
-              <i class="fas fa-bell"></i>
+                <i class="fas fa-bell"></i>
             </li>
 
             <li
                 class="rounded-full hover:shadow-lg cursor-pointer border-2 border-gray-300 p-2 w-8 h-8 justify-center items-center flex hover:shadow-gray-400"
             >
                 <img
-                src="https://picsum.photos/51/51"
-                class="rounded-full border-2 border-white"
-                alt=""
-                srcset=""
-            />
-            </li>   
-          
+                    src="https://picsum.photos/51/51"
+                    class="rounded-full border-2 border-white"
+                    alt=""
+                    srcset=""
+                />
+            </li>
         </ul>
     </div>
 </template>
@@ -53,7 +50,6 @@
 import FontAwesomeIcon from "@fortawesome/fontawesome-free";
 
 export default {
-    
     components: {
         FontAwesomeIcon,
     },
@@ -61,54 +57,58 @@ export default {
     data() {
         return {
             darkMode: false,
-           
+            language: "en",
         };
     },
 
     mounted() {
-
-        if(localStorage.getItem('darkMode') == 'true') {
+        if (localStorage.getItem("darkMode") == "true") {
             this.darkMode = true;
-                document.getElementsByTagName("body")[0].classList.add("dark");
-                
+            document.getElementsByTagName("body")[0].classList.add("dark");
         }
 
+        if (localStorage.getItem("language") == "ur") {
+            import("@/i18n").then((i18n) => {
+                i18n.default.setLocale("ur");
+            });
+        } else {
+            import("@/i18n").then((i18n) => {
+                i18n.default.setLocale("en");
+            });
+        }
     },
 
     methods: {
         switchToDarkMode() {
-            if(this.darkMode){
-                document.getElementsByTagName("body")[0].classList.toggle("dark");
+            if (this.darkMode) {
+                document
+                    .getElementsByTagName("body")[0]
+                    .classList.toggle("dark");
                 this.darkMode = false;
                 localStorage.setItem("darkMode", false);
-            }else{
-                document.getElementsByTagName("body")[0].classList.toggle("dark");
+            } else {
+                document
+                    .getElementsByTagName("body")[0]
+                    .classList.toggle("dark");
                 this.darkMode = true;
                 localStorage.setItem("darkMode", true);
             }
-
         },
 
         switchLanguage() {
-            //import i18n and get the current language
             import("@/i18n").then((i18n) => {
-            console.log(i18n);
-            i18n.default.setLocale('ur');
-
-                // const currentLanguage = i18n.default.locale;
-                // //get the next language
-                // const nextLanguage =
-                //     currentLanguage === "en" ? "fr" : "en";
-                // //set the next language
-                // i18n.default.locale = nextLanguage;
-                // //set the next language in localStorage
-                // localStorage.setItem("language", nextLanguage);
+                console.log(i18n);
+                if (i18n.default.getLocale() == "en") {
+                    i18n.default.setLocale("ur");
+                    localStorage.setItem("language", "ur");
+                } else {
+                    i18n.default.setLocale("en");
+                    localStorage.setItem("language", "en");
+                }
             });
-
-        }
+        },
     },
 };
-
 </script>
 
 <style lang="scss" scoped></style>

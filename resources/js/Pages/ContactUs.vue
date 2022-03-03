@@ -1,6 +1,6 @@
 <template>
     <Layout >
-        <h1>Test Contact us</h1>
+        <h1>{{$t('contactus')}}</h1>
     </Layout>
 </template>
 
